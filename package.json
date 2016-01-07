@@ -1,11 +1,18 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "com.wex.plugins.applicationInfo",
     "cordova_name": "ApplicationInfo",
     "description": "Application Info Plugin",
+    "cordova": {
+      "id": "com.wex.plugins.applicationInfo",
+      "platforms": [
+        "android",
+        "ios",
+        "browser"
+      ]
+    },
     "license": "MIT",
     "keywords": [
         "ApplicationInfo"
-    ],
-    "engines": []
+    ]
 }

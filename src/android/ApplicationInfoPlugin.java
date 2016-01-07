@@ -6,6 +6,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.telephony.TelephonyManager;
+import org.apache.cordova.CordovaWebView;
+import org.apache.cordova.CordovaInterface;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -19,7 +21,19 @@ import org.json.JSONArray;
  */
 public class ApplicationInfoPlugin extends CordovaPlugin {
 
+	public static final String TAG = "ApplicationInfoPlugin";
     public static final String ACTION_GET_VERSION_NAME = "getBuildVersion";
+
+	/**
+     * Constructor.
+     */
+    public ApplicationInfoPlugin() {
+    }
+
+	@Override
+	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+    }
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
@@ -41,4 +55,8 @@ public class ApplicationInfoPlugin extends CordovaPlugin {
 
         return false;
     }
+
+	public Boolean shouldAllowRequest(String url){
+		return true;
+	}
 }

@@ -6,10 +6,11 @@
 
 var exec = require('cordova/exec');
 
-var ApplicationInfo = {
-    getBuildVersion: function(successCallback) {
-        exec(successCallback, null, 'ApplicationInfo', 'getBuildVersion', []);
-    }
+var ApplicationInfo = function () {
+};
+
+ApplicationInfo.getBuildVersion = function (successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "ApplicationInfo", "getBuildVersion", []);
 };
 
 module.exports = ApplicationInfo;

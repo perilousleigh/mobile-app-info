@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="com.wex.plugins.applicationInfo"
-    version="1.0.0">
+    version="1.0.1">
     <author>WEX</author>
     <name>ApplicationInfo</name>
     <description>Application Info Plugin</description>
@@ -19,6 +19,7 @@
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="ApplicationInfo" >
                 <param name="android-package" value="com.wex.plugins.applicationInfo.ApplicationInfoPlugin"/>
+                <param name="onload" value="true"/>
             </feature>
         </config-file>
 
