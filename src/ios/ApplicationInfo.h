@@ -10,13 +10,8 @@
 #import "Cordova/CDVPlugin.h"
 
 
-@interface ApplicationInfo : CDVPlugin {
-	UIPasteboard *pasteboard;
-}
+@interface ApplicationInfo : CDVPlugin
 
 - (void)getBuildVersion:(CDVInvokedUrlCommand*)command;
-
--(void)setText:(CDVInvokedUrlCommand*)command;
--(void)getText:(CDVInvokedUrlCommand*)command;
 
 @end
