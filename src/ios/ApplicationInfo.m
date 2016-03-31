@@ -15,7 +15,7 @@
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     
     // Get version string
-    NSString* ver = [infoDict objectForKey:@"CFBundleVersion"];
+    NSString* ver = [infoDict objectForKey:@"CFBundleShortVersionString"];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
     
