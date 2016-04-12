@@ -10,12 +10,24 @@
 
 @implementation ApplicationInfo
 
-- (void)getBuildVersion:(CDVInvokedUrlCommand*)command {
+- (void)getAppVersion:(CDVInvokedUrlCommand*)command {
     // Get the main bundle for the app.
     NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
     
     // Get version string
     NSString* ver = [infoDict objectForKey:@"CFBundleShortVersionString"];
+    
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
+    
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)getBuildVersion:(CDVInvokedUrlCommand*)command {
+    // Get the main bundle for the app.
+    NSDictionary* infoDict = [[NSBundle mainBundle] infoDictionary];
+    
+    // Get version string
+    NSString* ver = [infoDict objectForKey:@"CFBundleVersion"];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:ver];
     

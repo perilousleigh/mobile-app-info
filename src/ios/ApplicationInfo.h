@@ -12,6 +12,8 @@
 
 @interface ApplicationInfo : CDVPlugin
 
+- (void)getAppVersion:(CDVInvokedUrlCommand*)command;
+
 - (void)getBuildVersion:(CDVInvokedUrlCommand*)command;
 
 @end

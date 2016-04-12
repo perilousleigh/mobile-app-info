@@ -22,7 +22,8 @@ import org.json.JSONArray;
 public class ApplicationInfoPlugin extends CordovaPlugin {
 
 	public static final String TAG = "ApplicationInfoPlugin";
-    public static final String ACTION_GET_VERSION_NAME = "getBuildVersion";
+    public static final String ACTION_GET_APP_VERSION_NAME = "getAppVersion";
+    public static final String ACTION_GET_BUILD_VERSION_NAME = "getBuildVersion";
 
 	/**
      * Constructor.
@@ -41,10 +42,22 @@ public class ApplicationInfoPlugin extends CordovaPlugin {
         TelephonyManager telephonyManager = (TelephonyManager) this.cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
         Resources applicationResources = this.cordova.getActivity().getResources();
 
-        if (ACTION_GET_VERSION_NAME.equals(action)) {
+        if (ACTION_GET_APP_VERSION_NAME.equals(action)) {
             try {
                 PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0);
                 callbackContext.success(packageInfo.versionName);
+                return true;
+            }
+            catch (NameNotFoundException nnfe) {
+                callbackContext.error(nnfe.getMessage());
+                return false;
+            }
+        }
+        
+        if (ACTION_GET_BUILD_VERSION_NAME.equals(action)) {
+            try {
+                PackageInfo packageInfo = packageManager.getPackageInfo(this.cordova.getActivity().getPackageName(), 0);
+                callbackContext.success(packageInfo.versionCode);
                 return true;
             }
             catch (NameNotFoundException nnfe) {
